@@ -111,8 +111,8 @@ export default {
       clientId,
       chainConfig: {
         chainNamespace: CHAIN_NAMESPACES.EIP155,
-        chainId: "0x1",
-        rpcTarget: "https://rpc.ankr.com/eth",
+        chainId: "0x61",
+        rpcTarget: "https://bsc-testnet.public.blastapi.io",
       },
       uiConfig: {
         defaultLanguage: "en",
@@ -159,8 +159,8 @@ export default {
       sessionTime: 86400, // 1 day in seconds
       chainConfig: {
         chainNamespace: CHAIN_NAMESPACES.EIP155,
-        chainId: "0x89",
-        rpcTarget: "https://rpc-mainnet.matic.network", // This is the public RPC we have added, please pass on your own endpoint while creating an app
+        chainId: "0x61",
+        rpcTarget: "https://bsc-testnet.public.blastapi.io",
       },
       web3AuthNetwork: "testnet",
     });
