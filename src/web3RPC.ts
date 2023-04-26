@@ -78,14 +78,14 @@ export default class EthereumRpc {
     }
   }
 
-  async signMessage() {
+  async signMessage(msg: string): Promise<string> {
     try {
       const web3 = new Web3(this.provider as any);
 
       // Get user's Ethereum public address
       const fromAddress = (await web3.eth.getAccounts())[0];
 
-      const originalMessage = "YOUR_MESSAGE";
+      const originalMessage = msg;
 
       // Sign the message
       const signedMessage = await web3.eth.personal.sign(

@@ -52,20 +52,18 @@ export default class EthereumRpc {
     }
   }
 
-  async sendTransaction(): Promise<any> {
+  async sendTransaction(destination: string, amount: number): Promise<any> {
     try {
       const ethersProvider = new ethers.providers.Web3Provider(this.provider);
       const signer = ethersProvider.getSigner();
 
-      const destination = "0x40e1c367Eca34250cAF1bc8330E9EddfD403fC56";
-
       // Convert 1 ether to wei
-      const amount = ethers.utils.parseEther("0.001");
+      const ETH = ethers.utils.parseEther(String(amount));
 
       // Submit transaction to the blockchain
       const tx = await signer.sendTransaction({
         to: destination,
-        value: amount,
+        value: ETH,
         maxPriorityFeePerGas: "5000000000", // Max priority fee per gas
         maxFeePerGas: "6000000000000", // Max fee per gas
       });
@@ -79,12 +77,12 @@ export default class EthereumRpc {
     }
   }
 
-  async signMessage() {
+  async signMessage(msg: string): Promise<string> {
     try {
       const ethersProvider = new ethers.providers.Web3Provider(this.provider);
       const signer = ethersProvider.getSigner();
 
-      const originalMessage = "YOUR_MESSAGE";
+      const originalMessage = msg;
 
       // Sign the message
       const signedMessage = await signer.signMessage(originalMessage);
@@ -95,13 +93,13 @@ export default class EthereumRpc {
     }
   }
 
-  async getPrivateKey(): Promise<any> {
+  async getPrivateKey(): Promise<string> {
     try {
       const privateKey = await this.provider.request({
         method: "eth_private_key",
       });
 
-      return privateKey;
+      return privateKey as string;
     } catch (error) {
       return error as string;
     }

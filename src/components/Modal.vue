@@ -61,6 +61,11 @@
           </button>
         </div>
         <div>
+            <button class="card" @click="signMessage" style="cursor: pointer">
+              Sign Message
+            </button>
+          </div>
+        <div>
           <button class="card" @click="logout" style="cursor: pointer">
             Logout
           </button>
@@ -107,18 +112,13 @@ export default {
       chainConfig: {
         chainNamespace: CHAIN_NAMESPACES.EIP155,
         chainId: "0x1",
-        rpcTarget: "https://rpc.ankr.com/eth", // This is the public RPC we have added, please pass on your own endpoint while creating an app
+        rpcTarget: "https://rpc.ankr.com/eth",
       },
       uiConfig: {
         defaultLanguage: "en",
       },
       web3AuthNetwork: "testnet",
     });
-
-    // plugins and adapters are optional and can be added as per your requirement
-    // read more about plugins here: https://web3auth.io/docs/sdk/web/plugins/
-
-    // adding torus wallet connector plugin
 
     const torusPlugin = new TorusWalletConnectorPlugin({
       torusWalletOpts: {},
@@ -132,10 +132,6 @@ export default {
         enableLogging: true,
       },
     });
-
-    // read more about adapters here: https://web3auth.io/docs/sdk/web/adapters/
-
-    // adding wallet connect v1 adapter
 
     const walletConnectV1Adapter = new WalletConnectV1Adapter({
       adapterSettings: {
@@ -318,7 +314,7 @@ export default {
         return;
       }
       const rpc = new RPC(provider);
-      const signedMessage = await rpc.signMessage();
+      const signedMessage = await rpc.signMessage('Welcome to Game for a living!');
       uiConsole(signedMessage);
     };
 
