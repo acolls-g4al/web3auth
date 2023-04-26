@@ -100,7 +100,7 @@ export default {
     const connecting = ref<boolean>(false);
     let provider = ref<SafeEventEmitterProvider | any>(false);
     const clientId =
-      "BEglQSgt4cUWcj6SKRdu5QkOXTsePmMcusG5EAoyjyOYKlVRjIF1iCNnMOTfpzCiunHRrMui8TIwQPXdkQ8Yxuk"; // get from https://dashboard.web3auth.io
+      "BBu2lTZQutOAheR1W14jdTVBY-t255TSLvK6Nan2mnkwxZjs4Q9Ch2JKXbVUshJMNjycd1314gzkPoafmPI9PZc"; // get from https://dashboard.web3auth.io
 
     const web3auth = new Web3Auth({
       clientId,
