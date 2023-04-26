@@ -1,17 +1,13 @@
 <template>
   <div id="app">
-    <h2>
-      <a target="_blank" href="http://web3auth.io/" rel="noreferrer">
-        Web3Auth
+      <a target="_blank" href="http://gamesforaliving.io/" rel="noreferrer" style="margin: 4rem; margin-top: 1rem;">
+        <img src="../assets/logo.png" alt="G4al logo" height="30" />
       </a>
-      Vue.js Ethereum Example
-    </h2>
-
     <button
       v-if="!loggedin"
       class="card"
       @click="login"
-      style="cursor: pointer"
+      style="cursor: pointer; width: 100px;"
     >
       Login
     </button>
@@ -35,7 +31,7 @@
         <div>
           <button class="card" @click="getChainId" style="cursor: pointer">
             Get Chain ID
-          </button>
+          </button>msg="Welcome to Your Vue.js + TypeScript App"
         </div>
         <div>
           <button class="card" @click="addChain" style="cursor: pointer">
@@ -55,17 +51,7 @@
         <div>
           <button class="card" @click="getBalance" style="cursor: pointer">
             Get Balance
-          </button>
-        </div>
-        <div>
-          <button class="card" @click="sendTransaction" style="cursor: pointer">
-            Send Transaction
-          </button>
-        </div>
-        <div>
-          <button class="card" @click="signMessage" style="cursor: pointer">
-            Sign Message
-          </button>
+          </button>bg-black
         </div>
         <div>
           <button class="card" @click="getPrivateKey" style="cursor: pointer">
@@ -89,19 +75,19 @@
 import { ref, onMounted } from "vue";
 import { Web3Auth } from "@web3auth/modal";
 import { CHAIN_NAMESPACES, SafeEventEmitterProvider } from "@web3auth/base";
-import RPC from "./web3RPC";
+import RPC from "../web3RPC";
 
 // Plugins
 import { TorusWalletConnectorPlugin } from "@web3auth/torus-wallet-connector-plugin";
 
-// Adapters
+// Adaptersd="app" class="main">
 import { WalletConnectV1Adapter } from "@web3auth/wallet-connect-v1-adapter";
 import { MetamaskAdapter } from "@web3auth/metamask-adapter";
 import { TorusWalletAdapter } from "@web3auth/torus-evm-adapter";
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: "Home",
+  name: "Modal",
   props: {
     msg: String,
   },
@@ -377,11 +363,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#app {
-  width: 80%;
-  margin: auto;
-  padding: 0 2rem;
-}
 h3 {
   margin: 40px 0 0;
 }

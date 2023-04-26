@@ -1,15 +1,15 @@
 <template>
-	<Home msg="Welcome to Your Vue.js + TypeScript App" />
+	<Modal />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Home from './Home.vue';
+import Modal from './components/Modal.vue';
 
 export default defineComponent({
 	name: 'App',
 	components: {
-		Home,
+		Modal,
 	},
 });
 </script>
@@ -20,7 +20,12 @@ export default defineComponent({
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
-	color: #2c3e50;
+	color: #c533b2;
 	margin-top: 60px;
+	background: black;
+}
+html {
+	background: black;
+	color: #c533b2;
 }
 </style>
