@@ -31,7 +31,7 @@
         <div>
           <button class="card" @click="getChainId" style="cursor: pointer">
             Get Chain ID
-          </button>msg="Welcome to Your Vue.js + TypeScript App"
+          </button>
         </div>
         <div>
           <button class="card" @click="addChain" style="cursor: pointer">
@@ -51,7 +51,7 @@
         <div>
           <button class="card" @click="getBalance" style="cursor: pointer">
             Get Balance
-          </button>bg-black
+          </button>
         </div>
         <div>
           <button class="card" @click="getPrivateKey" style="cursor: pointer">
@@ -381,10 +381,10 @@ a {
   margin: 0.5rem;
   padding: 0.7rem;
   text-align: center;
-  color: #0070f3;
+  color: #d123c3;
   background-color: #fafafa;
   text-decoration: none;
-  border: 1px solid #0070f3;
+  border: 1px solid #ca1ada;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   width: 100%;
@@ -400,6 +400,7 @@ a {
 .flex-container {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
 }
 
 .flex-container > div {
