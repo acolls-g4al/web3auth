@@ -1,13 +1,15 @@
 <template>
   <div id="app">
-      <a target="_blank" href="http://gamesforaliving.io/" rel="noreferrer" style="margin: 4rem; margin-top: 1rem;">
+    <div>
+      <a target="_blank" href="http://gamesforaliving.io/" rel="noreferrer" style="margin: 4rem">
         <img src="../assets/logo.png" alt="G4al logo" height="30" />
       </a>
+    </div>
     <button
       v-if="!loggedin"
       class="card"
       @click="login"
-      style="cursor: pointer; width: 100px;"
+      style="cursor: pointer; width: 100px; margin: 30px"
     >
       Login
     </button>
@@ -382,7 +384,7 @@ a {
   padding: 0.7rem;
   text-align: center;
   color: #d123c3;
-  background-color: #fafafa;
+  background-color: transparent;
   text-decoration: none;
   border: 1px solid #ca1ada;
   border-radius: 10px;
@@ -394,7 +396,7 @@ a {
 .card:focus,
 .card:active {
   cursor: pointer;
-  background-color: #f1f1f1;
+  background-color: transparent;
 }
 
 .flex-container {
