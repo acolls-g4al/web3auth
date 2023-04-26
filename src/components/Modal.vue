@@ -112,7 +112,7 @@ export default {
       uiConfig: {
         defaultLanguage: "en",
       },
-      web3AuthNetwork: "cyan",
+      web3AuthNetwork: "testnet",
     });
 
     // plugins and adapters are optional and can be added as per your requirement
@@ -151,7 +151,7 @@ export default {
     const metamaskAdapter = new MetamaskAdapter({
       clientId,
       sessionTime: 3600, // 1 hour in seconds
-      web3AuthNetwork: "cyan",
+      web3AuthNetwork: "testnet",
       chainConfig: {
         chainNamespace: CHAIN_NAMESPACES.EIP155,
         chainId: "0x1",
@@ -166,7 +166,7 @@ export default {
         chainId: "0x89",
         rpcTarget: "https://rpc-mainnet.matic.network", // This is the public RPC we have added, please pass on your own endpoint while creating an app
       },
-      web3AuthNetwork: "cyan",
+      web3AuthNetwork: "testnet",
     });
 
     // it will add/update  the metamask adapter in to web3auth class
