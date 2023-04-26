@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div>
-      <a target="_blank" href="http://gamesforaliving.io/" rel="noreferrer" style="margin: 4rem">
+      <a target="_blank" href="http://gamesforaliving.com/" rel="noreferrer" style="margin: 4rem">
         <img src="../assets/logo.png" alt="G4al logo" height="30" />
       </a>
     </div>
@@ -61,10 +61,15 @@
           </button>
         </div>
         <div>
-            <button class="card" @click="signMessage" style="cursor: pointer">
-              Sign Message
-            </button>
-          </div>
+          <button class="card" @click="signMessage" style="cursor: pointer">
+            Sign Message
+          </button>
+        </div>
+        <div>
+          <button class="card" @click="sendTransaction" style="cursor: pointer">
+            Sign Transaction
+          </button>
+        </div>
         <div>
           <button class="card" @click="logout" style="cursor: pointer">
             Logout
@@ -99,6 +104,11 @@ export default {
     msg: String,
   },
   setup() {
+    const CHAIN_CONFIG = {
+      chainNamespace: CHAIN_NAMESPACES.EIP155,
+      chainId: "0x61",
+      rpcTarget: "https://bsc-testnet.public.blastapi.io",
+    };
     const loggedin = ref<boolean>(false);
     const loading = ref<boolean>(false);
     const loginButtonStatus = ref<string>("");
@@ -109,11 +119,7 @@ export default {
 
     const web3auth = new Web3Auth({
       clientId,
-      chainConfig: {
-        chainNamespace: CHAIN_NAMESPACES.EIP155,
-        chainId: "0x61",
-        rpcTarget: "https://bsc-testnet.public.blastapi.io",
-      },
+      chainConfig: CHAIN_CONFIG,
       uiConfig: {
         defaultLanguage: "en",
       },
@@ -124,9 +130,9 @@ export default {
       torusWalletOpts: {},
       walletInitOptions: {
         whiteLabel: {
-          theme: { isDark: true, colors: { primary: "#00a8ff" } },
-          logoDark: "https://web3auth.io/images/w3a-L-Favicon-1.svg",
-          logoLight: "https://web3auth.io/images/w3a-D-Favicon-1.svg",
+          theme: { isDark: true, colors: { primary: "#000" } },
+          logoDark: "../assets/logo.png",
+          logoLight: "../assets/logo.png",
         },
         useWalletConnect: true,
         enableLogging: true,
@@ -148,20 +154,12 @@ export default {
       clientId,
       sessionTime: 3600, // 1 hour in seconds
       web3AuthNetwork: "testnet",
-      chainConfig: {
-        chainNamespace: CHAIN_NAMESPACES.EIP155,
-        chainId: "0x1",
-        rpcTarget: "https://rpc.ankr.com/eth", // This is the public RPC we have added, please pass on your own endpoint while creating an app
-      },
+      chainConfig: CHAIN_CONFIG,
     });
     // we can change the above settings using this function
     metamaskAdapter.setAdapterSettings({
       sessionTime: 86400, // 1 day in seconds
-      chainConfig: {
-        chainNamespace: CHAIN_NAMESPACES.EIP155,
-        chainId: "0x61",
-        rpcTarget: "https://bsc-testnet.public.blastapi.io",
-      },
+      chainConfig: CHAIN_CONFIG,
       web3AuthNetwork: "testnet",
     });
 
